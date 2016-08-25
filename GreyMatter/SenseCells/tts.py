@@ -10,7 +10,7 @@ def tts(message):
         tts_engine = 'say'
         return os.system(tts_engine + ' ' + message)
     elif sys.platform == 'linux2' or sys.platform == 'linux':
-        tts_engine = 'espeak'
+        tts_engine = 'espeak -v female3'
     return os.system(tts_engine + ' "' + message + '"')
 
 # tts("Hi handsome, this is Melissa")
