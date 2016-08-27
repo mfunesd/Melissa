@@ -8,7 +8,7 @@ def define_subject(speech_text):
     words_of_message.remove('wiki')
     cleaned_message = ' '.join(words_of_message)
     
-    try:
+    try:        
         wiki_data = wikipedia.summary(cleaned_message, sentences=5)
         
         regEx = re.compile(r'([^\(]*)\([^\)]*\) *(.*)')
