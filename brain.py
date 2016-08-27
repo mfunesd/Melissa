@@ -1,6 +1,6 @@
-from GreyMatter import tell_time,general_conversations
+from GreyMatter import tell_time,general_conversations, weather, define_subject
 
-def brain(name, speech_text):
+def brain(name, speech_text, city_name, city_code):
     def check_message(check):
         """
         This function checks if the items in the list (specified in
@@ -13,7 +13,7 @@ def brain(name, speech_text):
         else:
             return False
 
-    if check_message(['who','are', 'you']):
+    if check_message(['who', 'are', 'you']):
         general_conversations.who_are_you()
     elif check_message(['how', 'I', 'look']) or check_message(['how', 'am', 'I']):
         general_conversations.how_am_i()
@@ -27,5 +27,13 @@ def brain(name, speech_text):
         general_conversations.how_are_you()
     elif check_message(['time']):
         tell_time.what_is_time()
+    elif check_message(['how', 'weather']) or check_message(['how', 'is', 'the', 'weather']):
+        weather.weather(city_name, city_code)
+    elif check_message(['wiki']):
+        define_subject.define_subject(speech_text)
+    #if check_message(['como','estas']):
+        #general_conversations.como_estas()
+    #if check_message(['quien','eres']):
+        #general_conversations.quien_eres()
     else:
         general_conversations.undefined()
